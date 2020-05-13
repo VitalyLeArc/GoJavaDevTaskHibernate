@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="17" author="AnyName">
+        <loadData file="17_populate_link_developers_skills.csv" tableName="link_developers_skills" separator=",">
+            <column header="dev_id" name="dev_id" type="int "/>
+            <column header="skill_id" name="skill_id" type="int"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="15" author="AnyName">
+        <loadData file="15_populate_customers_changelog.xml" tableName="customers" separator=",">
+            <column header="customer_name" name="customer_name" type="String "/>
+            <column header="minage" name="minage" type="Long"/>
+            <column header="maxage" name="maxage" type="Long"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public abstract class _DAO<T> implements CRUDObject<T> {
+public abstract class _DAO<T> implements _CRUDObject<T> {
     protected EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
 
@@ -20,11 +20,11 @@ public abstract class _DAO<T> implements CRUDObject<T> {
     public abstract void create(T object);
 
     @Override
-    public abstract void read(T object);
+    public abstract void read(T object,Long id);
 
     @Override
-    public abstract void update(T object);
+    public abstract void update(T object,Long id);
 
     @Override
-    public abstract void delete(T object) ;
+    public abstract void delete(T object,Long id) ;
 }

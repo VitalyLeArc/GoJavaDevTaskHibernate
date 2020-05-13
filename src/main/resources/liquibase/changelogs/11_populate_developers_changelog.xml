@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="11" author="AnyName">
+        <loadData file="src/main/resources/liquibase/changelogs/11_populate_developers.csv" tableName="developers" separator=",">
+            <column header="name" name="name" type="STRING"/>
+            <column header="salary" name="salary" type="BigDecimal"/>
+            <column header="sex" name="sex" type="_EnumSex"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

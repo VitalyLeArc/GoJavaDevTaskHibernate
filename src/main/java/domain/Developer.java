@@ -10,6 +10,15 @@ import java.util.List;
 @Entity
 @Data
 public class Developer {
+
+    public Developer(){}
+
+    public Developer(String name, BigDecimal salary, _EnumSex sex) {
+        this.name = name;
+        this.salary = salary;
+        this.sex = sex;
+    }
+
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")
@@ -23,7 +32,7 @@ public class Developer {
     private BigDecimal salary;
 
     @Column(name = "sex")
-    private sexEnum sex;
+    private _EnumSex sex;
 
     @ManyToMany
     @JoinTable(name = "link_developers_projects")
@@ -31,4 +40,3 @@ public class Developer {
     private List<Project> projects;
 }
 
-enum sexEnum {male, female}

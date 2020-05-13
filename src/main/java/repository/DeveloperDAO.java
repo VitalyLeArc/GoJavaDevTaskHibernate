@@ -3,23 +3,41 @@ package repository;
 import domain.Developer;
 
 public class DeveloperDAO extends _DAO<Developer> {
-    @Override
-    public void create(Developer object) {
 
+    private static final DeveloperDAO developerDAO = new DeveloperDAO();
+
+    private DeveloperDAO() {}
+
+    public static DeveloperDAO getDeveloperDAO(){
+        return developerDAO;
     }
 
     @Override
-    public void read(Developer object) {
-
+    public void create(Developer developer) {
+        startNewEntityManager();
+        entityManager.persist(developer);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
     @Override
-    public void update(Developer object) {
+    public void read(Developer developer, Long id) {
+        startNewEntityManager();
 
+        entityManager.close();
     }
 
     @Override
-    public void delete(Developer object) {
+    public void update(Developer developer, Long id) {
+        startNewEntityManager();
 
+        entityManager.close();
+    }
+
+    @Override
+    public void delete(Developer developer, Long id) {
+        startNewEntityManager();
+
+        entityManager.close();
     }
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="src/main/resources/liquibase/changelogs/1_init_developers_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/2_init_projects_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/3_init_skills_changelog_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/4_init_companies_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/5_init_cystomers_changelog_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/6_init_cities_changelog_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/7_init_link_developers_skills_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/8_init_link_developers_project_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/9_init_link_comoanies_projects_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/10_init_link_customers_projects_sql.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/11_populate_developers_changelog.xml"/>
+
+</databaseChangeLog>
