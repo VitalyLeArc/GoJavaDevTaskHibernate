@@ -6,8 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="13" author="AnyName">
-        <loadData file="13_populate_cities.scv" tableName="cities" separator=",">
-            <column header="city_name" name="city_name" type="String "/>
-        </loadData>
+        <loadData file="src/main/resources/liquibase/changelogs/13_populate_cities.scv"
+                  tableName="cities" separator=","/>
     </changeSet>
 </databaseChangeLog>

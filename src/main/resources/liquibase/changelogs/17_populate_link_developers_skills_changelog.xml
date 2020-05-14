@@ -6,9 +6,7 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="17" author="AnyName">
-        <loadData file="17_populate_link_developers_skills.csv" tableName="link_developers_skills" separator=",">
-            <column header="dev_id" name="dev_id" type="int "/>
-            <column header="skill_id" name="skill_id" type="int"/>
-        </loadData>
+        <loadData file="src/main/resources/liquibase/changelogs/17_populate_link_developers_skills.csv"
+                  tableName="link_developers_skills" separator=","/>
     </changeSet>
 </databaseChangeLog>

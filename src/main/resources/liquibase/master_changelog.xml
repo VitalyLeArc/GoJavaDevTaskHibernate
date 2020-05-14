@@ -16,5 +16,15 @@
     <include file="src/main/resources/liquibase/changelogs/9_init_link_comoanies_projects_sql.xml"/>
     <include file="src/main/resources/liquibase/changelogs/10_init_link_customers_projects_sql.xml"/>
     <include file="src/main/resources/liquibase/changelogs/11_populate_developers_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/12_populate_projects_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/13_populate_cities_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/14_populate_company_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/15_populate_customers_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/16_populate_skills_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/17_populate_link_developers_skills_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/18_populate_link_companies_projects_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/19_populate_link_customers_projects_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/20_populate_link_projects_developers_changelog.xml"/>
+
 
 </databaseChangeLog>

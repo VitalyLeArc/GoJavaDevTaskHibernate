@@ -1,7 +1,7 @@
 customer_name,minage,maxage
 "Other developers",18,50
-"All people",null,null
-"Schoolchildren',7,16
-"Nolife gamers',15,45
-"Designers',18,55
-"Workers',18,65
+"Schoolchildren",7,16
+"AllPeople",null,null
+"Nolife gamers",15,45
+"Designers",18,55
+"Workers",18,65

@@ -5,10 +5,8 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="11" author="AnyName">
-        <loadData file="12_populate_projects.csv" tableName="projects" separator=",">
-            <column header="name" name="name" type="String "/>
-            <column header="version" name="version" type="String"/>
-        </loadData>
+    <changeSet id="12" author="AnyName">
+        <loadData file="src/main/resources/liquibase/changelogs/12_populate_projects.csv"
+                  tableName="projects" separator=","/>
     </changeSet>
 </databaseChangeLog>
