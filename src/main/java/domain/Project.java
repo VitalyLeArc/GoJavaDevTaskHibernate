@@ -4,10 +4,12 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@Table(name = "projects")
 public class Project {
     @Id
     @GeneratedValue(generator = "increment")
@@ -18,8 +20,20 @@ public class Project {
     @Column(name="name")
     private String name;
 
-    @ManyToMany
-    @JoinTable(name = "link_developers_projects")
-    @JoinColumn(name = "project_id")
-    private List<Developer> developers;
+   @ManyToMany(mappedBy = "projects", fetch=FetchType.EAGER)
+   private Set<Developer> developers=new HashSet<>();
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer("Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", developers= [ ");
+        for(Developer d:developers){
+            sb.append(d.getName());
+            sb.append(" ");
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 }

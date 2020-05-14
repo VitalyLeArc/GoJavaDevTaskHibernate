@@ -10,7 +10,7 @@
 
         <properties>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/lessonorm?serverTimezone=UTC"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/taskhibernate?serverTimezone=UTC"/>
             <property name="hibernate.connection.username" value="root1"/>
             <property name="hibernate.connection.password" value="root1"/>
             <property name="hibernate.connection.pool_size" value="1"/>

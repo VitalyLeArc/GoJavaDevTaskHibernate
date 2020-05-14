@@ -1,12 +1,10 @@
-import domain.Developer;
-import domain._EnumSex;
-import repository.DeveloperDAO;
+
+import service.DeveloperService;
 
 import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) {
-        DeveloperDAO.getDeveloperDAO();
-
+        System.out.println(DeveloperService.getDeveloperService().getDeveloperById(2L));
     }
 }

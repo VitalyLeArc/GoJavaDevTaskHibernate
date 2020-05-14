@@ -13,6 +13,7 @@
         <column name="name" type="VARCHAR(45)"/>
         <column name="age" type="INTEGER"/>
         <column name="sex" type="ENUM('male','female')"/>
+        <column name="salary" type="float"/>
     </createTable>
 </changeSet>
 

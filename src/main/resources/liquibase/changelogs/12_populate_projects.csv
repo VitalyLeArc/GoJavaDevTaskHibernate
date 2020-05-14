@@ -1,8 +1,8 @@
-id,name,version
-1,"Minecraft","1.15.2"
-2,"WorldOfWarcraft","8.3"
-3,"UnrealEngine4","4.24"
-4,"Rhinoceros","6.1.18023"
-5,"GroundWar:Tanks","3.4"
-6,"PizzaNinja4","2.3"
-7,"Android","7.2"
+id,name,version,cost,datebegin
+1,"Minecraft","1.15.2",16800,2020-04-22
+2,"WorldOfWarcraft","8.3",2300,2020-01-27
+3,"UnrealEngine4","4.24",7900,2020-02-27
+4,"Rhinoceros","6.1.18023",12400,2019-09-27
+5,"GroundWar:Tanks","3.4",4600,2019-12-27
+6,"PizzaNinja4","2.3",11000,2020-03-27
+7,"Android","7.2",8800,2019-05-27

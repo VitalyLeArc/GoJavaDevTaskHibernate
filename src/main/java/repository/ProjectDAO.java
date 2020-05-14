@@ -12,32 +12,11 @@ public class ProjectDAO extends _DAO<Project> {
         return projectDAO;
     }
 
-    @Override
-    public void create(Project project) {
-        startNewEntityManager();
-        entityManager.persist(project);
-        entityManager.getTransaction().commit();
-        entityManager.close();
-    }
 
-    @Override
-    public void read(Project project, Long id) {
-        startNewEntityManager();
+    /*по заданию
+        список разработчиков отдельного проекта;
+        список проектов в следующем формате: дата создания - название проекта - количество разработчиков на этом проекте.
 
-        entityManager.close();
-    }
-
-    @Override
-    public void update(Project project, Long id) {
-        startNewEntityManager();
-
-        entityManager.close();
-    }
-
-    @Override
-    public void delete(Project project, Long id) {
-        startNewEntityManager();
-
-        entityManager.close();
-    }
+        зарплату(сумму) всех разработчиков отдельного проекта;
+    */
 }

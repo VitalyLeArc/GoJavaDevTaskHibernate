@@ -12,6 +12,8 @@
                 </column>
                 <column name="name" type="VARCHAR(45)"/>
                 <column name="version" type="VARCHAR(45)"/>
+                <column name="cost" type="float"/>
+                <column name="datebegin" type="date"/>
             </createTable>
 
         </changeSet>

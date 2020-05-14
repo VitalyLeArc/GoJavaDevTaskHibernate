@@ -2,42 +2,21 @@ package repository;
 
 import domain.Developer;
 
+import java.util.List;
+
 public class DeveloperDAO extends _DAO<Developer> {
 
-    private static final DeveloperDAO developerDAO = new DeveloperDAO();
+    public DeveloperDAO() {}
 
-    private DeveloperDAO() {}
-
-    public static DeveloperDAO getDeveloperDAO(){
-        return developerDAO;
-    }
-
-    @Override
-    public void create(Developer developer) {
+    public List<Developer> getDevelopersForGrade (String grade){
         startNewEntityManager();
-        entityManager.persist(developer);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        List<Developer> developers = entityManager.createQuery("from Developer where ").getResultList();
+        return developers;
     }
+    /*по заданию
+            список всех Java разработчиков;
+        список всех middle разработчиков;
+     */
 
-    @Override
-    public void read(Developer developer, Long id) {
-        startNewEntityManager();
 
-        entityManager.close();
-    }
-
-    @Override
-    public void update(Developer developer, Long id) {
-        startNewEntityManager();
-
-        entityManager.close();
-    }
-
-    @Override
-    public void delete(Developer developer, Long id) {
-        startNewEntityManager();
-
-        entityManager.close();
-    }
 }

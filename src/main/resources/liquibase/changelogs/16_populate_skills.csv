@@ -1,1 +1,8 @@
-grade
+skill_name,grade
+"Java","Middle"
+"Java","Senior"
+"C++","Senior"
+"JS","Junior"
+"C#","Middle"
+"C#","Junior"
+"lua","Middle"

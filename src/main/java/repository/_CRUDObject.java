@@ -2,11 +2,10 @@ package repository;
 
 public interface _CRUDObject<T> {
 
+//базовые CRUD по ID
     public void create(T object);
+    public T read(Class<T> type,Long id);
+    public void update(Class<T> type,T object,Long id);
+    public void delete(Class<T> type, Long id);
 
-    public void read(T object,Long id);
-
-    public void update(T object,Long id);
-
-    public void delete(T object, Long id);
 }
