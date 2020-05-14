@@ -47,7 +47,7 @@ public class Developer {
     )
     private Set<Skill> skills = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "link_developers_projects",
             joinColumns = {@JoinColumn(name = "dev_id")},
@@ -65,13 +65,13 @@ public class Developer {
                 ", sex=" + sex +
                 ", skills= [ ");
         for (Skill sk : skills) {
-            sb.append("\""+sk.getName() + "\" ");
-            sb.append("\""+sk.getGrade() + "\" ");
+            sb.append("\"" + sk.getName() + "\" ");
+            sb.append("\"" + sk.getGrade() + "\" ");
         }
         sb.append("], projects= [ ");
 
         for (Project p : projects) {
-            sb.append("\""+p.getName() + "\" ");
+            sb.append("\"" + p.getName() + "\" ");
         }
         sb.append("]");
         return sb.toString();

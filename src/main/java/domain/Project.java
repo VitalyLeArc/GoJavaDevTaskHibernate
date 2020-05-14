@@ -17,11 +17,11 @@ public class Project {
     @Column(name = "id")
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-   @ManyToMany(mappedBy = "projects", fetch=FetchType.EAGER)
-   private Set<Developer> developers=new HashSet<>();
+    @ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
+    private Set<Developer> developers = new HashSet<>();
 
     @Override
     public String toString() {
@@ -29,9 +29,8 @@ public class Project {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", developers= [ ");
-        for(Developer d:developers){
-            sb.append(d.getName());
-            sb.append(" ");
+        for (Developer d : developers) {
+            sb.append("\"" + d.getName() + "\" ");
         }
         sb.append("]");
         return sb.toString();

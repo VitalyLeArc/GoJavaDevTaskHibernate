@@ -4,13 +4,8 @@ import domain.Project;
 
 public class ProjectDAO extends _DAO<Project> {
 
-    private static final ProjectDAO projectDAO = new ProjectDAO();
 
-    private ProjectDAO() {}
 
-    public static ProjectDAO getProjectDao(){
-        return projectDAO;
-    }
 
 
     /*по заданию
