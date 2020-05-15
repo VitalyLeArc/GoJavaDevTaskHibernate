@@ -1,6 +1,7 @@
 package domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.Set;
 @Data
 @Table(name = "developers")
 @Entity
+@EqualsAndHashCode(of = "id")
 public class Developer {
 
     public Developer() {
@@ -47,7 +49,7 @@ public class Developer {
     )
     private Set<Skill> skills = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(
             name = "link_developers_projects",
             joinColumns = {@JoinColumn(name = "dev_id")},
@@ -78,20 +80,6 @@ public class Developer {
     }
 }
 
-@Data
-@Entity
-@Table(name = "skills")
-class Skill {
-    @Id
-    @Column(name = "id")
-    private Long id;
 
-    @Column(name = "skill_name")
-    private String name;
-
-    @Column(name = "grade")
-    @Enumerated(EnumType.STRING)
-    private _EnumGrade grade;
-}
 
 

@@ -1,15 +1,18 @@
 package domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 @Data
 @Table(name = "projects")
+@EqualsAndHashCode(of = "id")
 public class Project {
     @Id
     @GeneratedValue(generator = "increment")
@@ -20,7 +23,10 @@ public class Project {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "projects", fetch = FetchType.LAZY)
+    @Column(name ="datebegin")
+    private Date date;
+
+    @ManyToMany(mappedBy = "projects")
     private Set<Developer> developers = new HashSet<>();
 
     @Override

@@ -4,9 +4,37 @@ import domain.Developer;
 import domain.Project;
 import repository.ProjectDAO;
 
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class ProjectService {
 
     private ProjectDAO projectDAO;
+
+    public List<String> getDevelopersForProjectName(String projectName){
+        projectDAO=new ProjectDAO();
+        return projectDAO.getDevelopersForProjectName(projectName).stream().flatMap(dev-> Stream.of(dev.getName())).collect(Collectors.toList());
+    }
+
+    public String getAllProjectsInfo(){
+        projectDAO=new ProjectDAO();
+        StringBuffer sb= new StringBuffer();
+        for(Project pr:projectDAO.getAllProjects()){
+               sb.append("Дата создания: "+pr.getDate()+" Название проекта: "+pr.getName()+" Количество разработчиков: "+pr.getDevelopers().size()+"\n");
+        }
+        return sb.toString();
+    }
+
+    public BigDecimal getSumSalaryOfDevelopersForProject(String projectName){
+        projectDAO=new ProjectDAO();
+        return projectDAO.readByName(projectName).getDevelopers().stream()
+                .map(Developer::getSalary)
+                .reduce(BigDecimal::add).get();
+    }
+    /**/
     
     public Project getProjectById(Long id) {
         projectDAO = new ProjectDAO();
@@ -34,7 +62,7 @@ public class ProjectService {
     private ProjectService() {
     }
 
-    private static ProjectService getProjectService() {
+    public static ProjectService getProjectService() {
         return projectService;
     }
 }

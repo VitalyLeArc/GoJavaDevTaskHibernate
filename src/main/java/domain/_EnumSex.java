@@ -1,3 +1,6 @@
 package domain;
 
-public enum _EnumSex {male, female}
+public enum _EnumSex
+{
+    male, female
+}
