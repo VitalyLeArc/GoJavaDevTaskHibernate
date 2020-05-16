@@ -1,6 +1,6 @@
 package repository;
 
-public interface _CRUDObject<T> {
+public interface CRUDObject<T> {
 
 //базовые CRUD по ID
     public void create(T object);

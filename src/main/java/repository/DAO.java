@@ -1,20 +1,11 @@
 package repository;
 
-import domain.Developer;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.util.Arrays;
-import java.util.Optional;
 
-public abstract class _DAO<T> implements _CRUDObject<T> {
+public abstract class _DAO<T> implements CRUDObject<T> {
     protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
-
-   /*public _DAO() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("persistence_task");
-    }*/
 
     protected void startNewEntityManager() {
         entityManager = entityManagerFactory.createEntityManager();
