@@ -12,6 +12,8 @@ public class Main {
         BigDecimal sumSalaryDevelopersOfMinecraft = ProjectService.getProjectService().getSumSalaryOfDevelopersForProject("Minecraft");
         String infoAllProjects = ProjectService.getProjectService().getAllProjectsInfo();
 
+        System.out.println("\n\n");
+        
         System.out.println("Список разработчиков уровня Middle " + allMiddleDevelopers);
         System.out.println("Список разработчиков владеющих Java " + allJavaDevelopers);
         System.out.println("Список разработчиков в проекте UnrealEngine4 " + developersOfUnrealEngine4);

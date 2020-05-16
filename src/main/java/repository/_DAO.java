@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public abstract class _DAO<T> implements _CRUDObject<T> {
-    protected EntityManagerFactory entityManagerFactory;
+    protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
 
-    public _DAO() {
+   /*public _DAO() {
         entityManagerFactory = Persistence.createEntityManagerFactory("persistence_task");
-    }
+    }*/
 
     protected void startNewEntityManager() {
         entityManager = entityManagerFactory.createEntityManager();

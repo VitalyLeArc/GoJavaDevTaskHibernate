@@ -4,6 +4,7 @@ import domain.Developer;
 import domain.Skill;
 import domain._EnumGrade;
 
+import javax.persistence.Persistence;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -11,8 +12,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DeveloperDAO extends _DAO<Developer> {
+    private final static DeveloperDAO developerDAO = new DeveloperDAO();
 
-    public DeveloperDAO() {
+    private DeveloperDAO() {
+    }
+
+    public static DeveloperDAO getDeveloperDao() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("persistence_task");
+        return developerDAO;
     }
 
     public List<Developer> getDevelopersForGrade(String gradeString) {
@@ -35,9 +42,15 @@ public class DeveloperDAO extends _DAO<Developer> {
         Set<Skill> skills = Set.copyOf(entityManager.createQuery("From Skill sk where sk.grade=:grade_name")
                 .setParameter("grade_name", grade)
                 .getResultList());
-        List<Set<Developer>> lsd = skills.stream().flatMap(skill -> Stream.of(skill.getDevelopers())).collect(Collectors.toList()); //боль
+        List<Set<Developer>> listSetDev = skills
+                .stream()
+                .flatMap(skill -> Stream.of(skill.getDevelopers()))
+                .collect(Collectors.toList());
         entityManager.close();
-        return lsd.stream().flatMap(Set::stream).distinct()
+        return listSetDev
+                .stream()
+                .flatMap(Set::stream)
+                .distinct()
                 .collect(Collectors.toList());
     }
 
@@ -50,11 +63,18 @@ public class DeveloperDAO extends _DAO<Developer> {
         Set<Skill> skills = Set.copyOf(entityManager.createQuery("From Skill sk where sk.name=:sk_name")
                 .setParameter("sk_name", skill)
                 .getResultList());
-        List<Set<Developer>> lsd = skills.stream().flatMap(skillInStream -> Stream.of(skillInStream.getDevelopers())).collect(Collectors.toList());
+        List<Set<Developer>> listSetDev = skills
+                .stream()
+                .flatMap(skillInStream -> Stream.of(skillInStream.getDevelopers()))
+                .collect(Collectors.toList());
         entityManager.close();
-        return lsd.stream().flatMap(Set::stream).distinct()
+        return listSetDev
+                .stream()
+                .flatMap(Set::stream)
+                .distinct()
                 .collect(Collectors.toList());
     }
+
     /*по заданию
         список всех Java разработчиков;
         список всех middle разработчиков;

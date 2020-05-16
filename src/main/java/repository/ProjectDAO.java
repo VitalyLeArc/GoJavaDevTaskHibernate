@@ -3,12 +3,20 @@ package repository;
 import domain.Developer;
 import domain.Project;
 
+import javax.persistence.Persistence;
 import java.util.List;
 import java.util.Set;
 
 public class ProjectDAO extends _DAO<Project> {
 
-    public ProjectDAO() {
+    private ProjectDAO() {
+    }
+
+    private static final ProjectDAO projectDAO = new ProjectDAO();
+
+    public static ProjectDAO getProjectDAO() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("persistence_task");
+        return projectDAO;
     }
 
     public Set<Developer> getDevelopersForProjectName(String projectName) {
@@ -29,7 +37,10 @@ public class ProjectDAO extends _DAO<Project> {
 
     public Project readByName(String projectName) {
         startNewEntityManager();
-        Project project = (Project)entityManager.createQuery("from Project where name=:prname").setParameter("prname",projectName).getSingleResult();
+        Project project = (Project) entityManager
+                .createQuery("from Project where name=:prname")
+                .setParameter("prname", projectName)
+                .getSingleResult();
         entityManager.close();
         return project;
     }
