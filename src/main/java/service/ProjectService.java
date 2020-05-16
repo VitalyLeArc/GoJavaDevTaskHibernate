@@ -12,33 +12,40 @@ import java.util.stream.Stream;
 public class ProjectService {
     private static final ProjectService projectService = new ProjectService();
 
-    private ProjectService(){}
+    private ProjectService() {
+    }
 
     public static ProjectService getProjectService() {
         return projectService;
     }
 
-    public List<String> getDevelopersForProjectName(String projectName){
+    public List<String> getDevelopersForProjectName(String projectName) {
         return ProjectDAO.getProjectDAO().getDevelopersForProjectName(projectName).stream()
-                .flatMap(dev-> Stream.of(dev.getName()))
+                .flatMap(dev -> Stream.of(dev.getName()))
                 .collect(Collectors.toList());
     }
 
-    public String getAllProjectsInfo(){
-        StringBuffer sb= new StringBuffer();
-        for(Project pr:ProjectDAO.getProjectDAO().getAllProjects()){
-               sb.append("Дата создания: "+pr.getDate()+" Название проекта: "+pr.getName()+" Количество разработчиков: "+pr.getDevelopers().size()+"\n");
+    public String getAllProjectsInfo() {
+        StringBuffer sb = new StringBuffer();
+        for (Project pr : ProjectDAO.getProjectDAO().getAllProjects()) {
+            sb.append("Дата создания: ")
+                    .append(pr.getDate())
+                    .append(" Название проекта: ")
+                    .append(pr.getName())
+                    .append(" Количество разработчиков: ")
+                    .append(pr.getDevelopers().size())
+                    .append("\n");
         }
         return sb.toString();
     }
 
-    public BigDecimal getSumSalaryOfDevelopersForProject(String projectName){
+    public BigDecimal getSumSalaryOfDevelopersForProject(String projectName) {
         return ProjectDAO.getProjectDAO().readByName(projectName).getDevelopers()
                 .stream()
                 .map(Developer::getSalary)
                 .reduce(BigDecimal::add).get();
     }
-    
+
     public Project getProjectById(Long id) {
         return ProjectDAO.getProjectDAO().read(Project.class, id);
     }

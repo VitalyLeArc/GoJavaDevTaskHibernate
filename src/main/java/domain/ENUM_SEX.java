@@ -1,6 +1,17 @@
 package domain;
 
-public enum _EnumSex
+public enum ENUM_SEX
 {
-    male, female
+    male, female;
+
+    public static ENUM_SEX getSexForString(String sexString){
+        switch (sexString){
+            case "male":
+                return male;
+            case "female":
+                return female;
+            default:
+                return null;
+        }
+    }
 }

@@ -19,7 +19,7 @@ public class Developer {
     public Developer() {
     }
 
-    public Developer(String name, BigDecimal salary, _EnumSex sex) {
+    public Developer(String name, BigDecimal salary, ENUM_SEX sex) {
         this.name = name;
         this.salary = salary;
         this.sex = sex;
@@ -39,7 +39,7 @@ public class Developer {
 
     @Column(name = "sex")
     @Enumerated(EnumType.STRING)
-    private _EnumSex sex;
+    private ENUM_SEX sex;
 
     @ManyToMany
     @JoinTable(

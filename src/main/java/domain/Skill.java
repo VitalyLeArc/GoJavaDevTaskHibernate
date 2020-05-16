@@ -21,7 +21,7 @@ public class Skill {
 
     @Column(name = "grade")
     @Enumerated(EnumType.STRING)
-    private _EnumGrade grade;
+    private ENUM_GRADE grade;
 
     @ManyToMany(mappedBy = "skills")
     private Set<Developer> developers = new HashSet<>();

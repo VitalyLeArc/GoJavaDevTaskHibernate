@@ -1,6 +1,7 @@
 package service;
 
 import domain.Developer;
+import domain.ENUM_GRADE;
 import repository.DeveloperDAO;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class DeveloperService {
     }
 
     public List<String> getDevelopersForGrade(String grade) {
-        return DeveloperDAO.getDeveloperDao().getDevelopersForGrade(grade)
+        return DeveloperDAO.getDeveloperDao().getDevelopersForGrade(ENUM_GRADE.getEnumForString(grade))
                 .stream()
                 .flatMap(developer -> Stream.of(developer.getName()))
                 .collect(Collectors.toList());

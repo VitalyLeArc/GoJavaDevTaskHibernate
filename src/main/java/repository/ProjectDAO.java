@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import java.util.List;
 import java.util.Set;
 
-public class ProjectDAO extends _DAO<Project> {
+public class ProjectDAO extends DAO<Project> {
 
     private ProjectDAO() {
     }

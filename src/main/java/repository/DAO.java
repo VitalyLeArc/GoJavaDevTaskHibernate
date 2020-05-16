@@ -3,7 +3,7 @@ package repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
-public abstract class _DAO<T> implements CRUDObject<T> {
+public abstract class DAO<T> implements CRUD_Object<T> {
     protected static EntityManagerFactory entityManagerFactory;
     protected EntityManager entityManager;
 
