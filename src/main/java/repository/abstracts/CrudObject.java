@@ -1,4 +1,4 @@
-package repository;
+package repository.abstracts;
 
 public interface CRUD_Object<T> {
 
