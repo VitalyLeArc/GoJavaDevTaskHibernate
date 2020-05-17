@@ -21,9 +21,9 @@ public class DeveloperDAO extends DAO<Developer> {
 
     public List<Developer> getDevelopersForGrade(ENUM_GRADE grade) {
         startNewEntityManager();
-        Set<Skill> skills = Set.copyOf(entityManager.createQuery("From Skill sk where sk.grade=:grade_name")
+        List<Skill> skills = entityManager.createQuery("From Skill sk where sk.grade=:grade_name")
                 .setParameter("grade_name", grade)
-                .getResultList());
+                .getResultList();
         List<Developer> listSetDev = skills
                 .stream()
                 .flatMap(skill -> skill.getDevelopers().stream())
