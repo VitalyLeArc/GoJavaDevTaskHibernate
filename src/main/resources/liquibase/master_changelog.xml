@@ -25,6 +25,8 @@
     <include file="src/main/resources/liquibase/changelogs/18_populate_link_companies_projects_changelog.xml"/>
     <include file="src/main/resources/liquibase/changelogs/19_populate_link_customers_projects_changelog.xml"/>
     <include file="src/main/resources/liquibase/changelogs/20_populate_link_projects_developers_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/21_modify_enum_skillgrade_touppercase_changelog.xml"/>
+    <include file="src/main/resources/liquibase/changelogs/22_modify_enum_devsex_touppercase_changelog.xml"/>
 
-
+    <!-- <include file="src/main/resources/liquibase/changelogs/ /> -->
 </databaseChangeLog>
