@@ -1,18 +1,18 @@
 package domain.enums;
 
-public enum ENUM_GRADE
+public enum EnumGrade
 {
     JUNIOR, MIDDLE, SENIOR;
 
-    public static ENUM_GRADE getEnumForString (String enumString){
+    public static EnumGrade getEnumForString (String enumString){
         enumString = enumString.toLowerCase();
         switch (enumString) {
             case "junior":
-                return  ENUM_GRADE.JUNIOR;
+                return  EnumGrade.JUNIOR;
             case "middle":
-                return  ENUM_GRADE.MIDDLE;
+                return  EnumGrade.MIDDLE;
             case "senior":
-                return ENUM_GRADE.SENIOR;
+                return EnumGrade.SENIOR;
             default:
                 return null;
         }

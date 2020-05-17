@@ -2,11 +2,11 @@ package repository;
 
 import domain.Developer;
 import domain.Skill;
-import domain.ENUM_GRADE;
+import domain.enums.EnumGrade;
+import repository.abstracts.DAO;
 
 import javax.persistence.Persistence;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class DeveloperDAO extends DAO<Developer> {
@@ -19,7 +19,7 @@ public class DeveloperDAO extends DAO<Developer> {
         return developerDAO;
     }
 
-    public List<Developer> getDevelopersForGrade(ENUM_GRADE grade) {
+    public List<Developer> getDevelopersForGrade(EnumGrade grade) {
         startNewEntityManager();
         List<Skill> skills = entityManager.createQuery("From Skill sk where sk.grade=:grade_name")
                 .setParameter("grade_name", grade)

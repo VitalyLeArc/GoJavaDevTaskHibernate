@@ -2,8 +2,10 @@ package repository;
 
 import domain.Developer;
 import domain.Project;
+import repository.abstracts.DAO;
 
 import javax.persistence.Persistence;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,9 +25,9 @@ public class ProjectDAO extends DAO<Project> {
         startNewEntityManager();
         Project project = (Project) entityManager.createQuery("from Project pr where pr.name=:prname")
                 .setParameter("prname", projectName)
-                .getSingleResult();
+                .getResultList().stream().findFirst().orElse(null);
         entityManager.close();
-        return project.getDevelopers();
+        return project != null ? project.getDevelopers() : new HashSet<>();
     }
 
     public List<Project> getAllProjects() {

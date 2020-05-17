@@ -1,10 +1,10 @@
 package domain.enums;
 
-public enum ENUM_SEX
+public enum EnumSex
 {
     MALE, FEMALE;
 
-    public static ENUM_SEX getSexForString(String sexString){
+    public static EnumSex getSexForString(String sexString){
         switch (sexString){
             case "male":
                 return MALE;

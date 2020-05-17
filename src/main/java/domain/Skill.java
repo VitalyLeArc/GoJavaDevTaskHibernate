@@ -1,5 +1,6 @@
 package domain;
 
+import domain.enums.EnumGrade;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -21,7 +22,7 @@ public class Skill {
 
     @Column(name = "grade")
     @Enumerated(EnumType.STRING)
-    private ENUM_GRADE grade;
+    private EnumGrade grade;
 
     @ManyToMany(mappedBy = "skills")
     private Set<Developer> developers = new HashSet<>();

@@ -1,5 +1,6 @@
 package domain;
 
+import domain.enums.EnumSex;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.GenericGenerator;
@@ -19,7 +20,7 @@ public class Developer {
     public Developer() {
     }
 
-    public Developer(String name, BigDecimal salary, ENUM_SEX sex) {
+    public Developer(String name, BigDecimal salary, EnumSex sex) {
         this.name = name;
         this.salary = salary;
         this.sex = sex;
@@ -39,7 +40,7 @@ public class Developer {
 
     @Column(name = "sex")
     @Enumerated(EnumType.STRING)
-    private ENUM_SEX sex;
+    private EnumSex sex;
 
     @ManyToMany
     @JoinTable(

@@ -1,6 +1,6 @@
 package repository.abstracts;
 
-public interface CRUD_Object<T> {
+public interface CrudObject<T> {
 
 //базовые CRUD по ID
     public void create(T object);
